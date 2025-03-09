@@ -39,6 +39,52 @@ function createEmployeeCard(name, position){
         console.log('Clicked On Employee Card:', empName.textContent);
     });
 
+    //Task 5 - Inline Editing for Employee Cards
+    employeeCard.addEventListener('dblclick', () => {
+        //Stopping the function if a save button already exists to prevent multiple edit modes
+        if(employeeCard.querySelector('.save-btn')){
+            return;
+        }
+            
+        //Clearing the current card content for editing
+        employeeCard.innerHTML = '';
+        
+        //Adding input field to edit the employee name
+        const nameInput = document.createElement('input');
+        nameInput.setAttribute('type', 'text');
+        nameInput.value = empName.textContent;
+        
+        //Adding input field to edit the employee position
+        const positionInput = document.createElement('input');
+        positionInput.setAttribute('type', 'text');
+        positionInput.value = empPosition.textContent;
+        
+        //Adding a save button to save the edits
+        const saveBtn = document.createElement('button');
+        saveBtn.setAttribute('class', 'save-btn');
+        saveBtn.textContent = 'Save';
+        
+        //Adding elements with clear spacing
+        employeeCard.appendChild(nameInput);
+        employeeCard.appendChild(document.createElement('br'));
+        employeeCard.appendChild(positionInput);
+        employeeCard.appendChild(document.createElement('br'));
+        employeeCard.appendChild(saveBtn);
+        employeeCard.appendChild(document.createElement('br'));
+        employeeCard.appendChild(removeBtn);
+        
+        //Saving the edits and going back to the original card view
+        saveBtn.onclick = () => {
+            empName.textContent = nameInput.value;
+            empPosition.textContent = positionInput.value;
+            employeeCard.innerHTML = '';
+            employeeCard.append(empName, empPosition, removeBtn);
+        };
+    });
+        
+    //Adding the completed card to the container
+    divEmpContainer.appendChild(employeeCard);
+    return employeeCard; 
 }
 
 //When the webpage loads, the initial employee cards are added and the bulk styles are applied to all the cards
