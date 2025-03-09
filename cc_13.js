@@ -24,6 +24,21 @@ function createEmployeeCard(name, position){
     removeBtn.setAttribute('class', 'remove-btn');
     removeBtn.textContent = 'Remove';
     employeeCard.append(removeBtn); 
+
+    //Task 4 - Employee Card Removal with Event Bubbling
+    removeBtn.addEventListener('click', (event) => {
+        //Removing the card from the page
+        employeeCard.remove();
+            
+        //Prevent click from affecting parent elements (stop event bubbling)
+        event.stopPropagation();
+    });
+    
+    //Logging a message when the employee card is clicked
+    employeeCard.addEventListener('click', () => {
+        console.log('Clicked On Employee Card:', empName.textContent);
+    });
+
 }
 
 //When the webpage loads, the initial employee cards are added and the bulk styles are applied to all the cards
