@@ -40,3 +40,21 @@ document.getElementById('addEmployeeBtn').addEventListener('click', () => {
     const currentCard = createEmployeeCard('Alice Hudson', 'Manager');
     setEmployeeCardStyle(currentCard);
 })
+
+//Task 3 - Bulk Update on Employee Cards
+function createBulkEmpStyleUpdate(){
+    //Selecting all the employee cards on the page
+    const employeeCards = document.querySelectorAll('.employee-card');
+    
+    //Converting all cards to an array and adding styles
+    const arrEmployees = Array.from(employeeCards);
+    arrEmployees.forEach((emp) => {
+        setEmployeeCardStyle(emp);
+    })
+}
+
+//Setting the style per card
+function setEmployeeCardStyle(currentCard){
+    currentCard.style.border = '2px solid green';
+    currentCard.style.backgroundColor = 'skyblue';
+}
