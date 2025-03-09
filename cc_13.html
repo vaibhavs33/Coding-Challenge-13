@@ -1,0 +1,80 @@
+<!-- Task 1 - Base Structure Created -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System Dashboard</title>
+    <style>
+        .employee-card {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .employee-name{
+            color:maroon;
+        }
+        header {
+            width: 100%;
+            padding: 20px;
+        }
+        header, footer {
+            text-align: center;
+            align-content: center;
+            background-color: Orange;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        footer p {
+            margin-bottom:20px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-bottom: 60px;
+        }
+        main {
+            padding: 20px;
+        }
+        .remove-btn, .save-btn, input[type="text"] {
+            width: 200px;
+        }
+        #addEmployeeBtn{
+            background-color: white;
+            margin-left:10px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Employee Management System Dashboard</h1>
+    </header>
+    
+
+    <main>
+        <div id="employeeContainer">
+            <!--Employee cards will be dynamically added-->
+        </div>
+        
+        <div>
+            <!--Adding Employee Button-->
+            <button id="addEmployeeBtn">Add Employee</button>
+        </div>
+    </main>
+    
+    <footer>
+        <p>2025 Employee Management System</p>
+    </footer>
+    
+    <!-- Link to the JavaScript File -->
+    <script src="cc_13.js"></script>
+
+</body>
+</html>
