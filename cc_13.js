@@ -75,8 +75,22 @@ function createEmployeeCard(name, position){
         
         //Saving the edits and going back to the original card view
         saveBtn.onclick = () => {
-            empName.textContent = nameInput.value;
-            empPosition.textContent = positionInput.value;
+            //Updates the employee name. If value is not null or empty space, otherwise inform the user with an alert.
+            if(nameInput.value != null && nameInput.value.trim() != ''){
+                empName.textContent = nameInput.value.trim();
+            }
+            else{
+                alert('Employee name cannot be empty, so putting the old value back');
+            }
+            
+            //Updates the employee position. If value is not null or empty space, otherwise inform the user with an alert.
+            if(positionInput.value != null && positionInput.value.trim() != ''){
+                empPosition.textContent = positionInput.value.trim();
+            }
+            else{
+                alert('Employee position cannot be empty, so putting the old value back');
+            }
+            
             employeeCard.innerHTML = '';
             employeeCard.append(empName, empPosition, removeBtn);
         };
